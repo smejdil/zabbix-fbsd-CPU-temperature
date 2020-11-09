@@ -24,6 +24,11 @@ create zbx.cpu.coretemp.conf file in zabbix_agentd.conf.d
 
 * make sure you have bash installed and the Include directive is present and valid in zabbix_agentd.conf to include individual files *
 
+`
+UserParameter=coretemp.cpu.discovery, /usr/local/bin/bash -c 'echo -n "{\"data\":["; for i in `sysctl -a | grep "dev.cpu.*.temperature" | awk -F "." '\''{print $3}'\'' | sort -n` ; do echo -n "{\"{#CPUCORE}\":\""$i"\"}," ; done | sed "s/.$//"; echo -n "]}"'
+UserParameter=coretemp.cpu[*], sysctl dev.cpu.$1.temperature | sed 's/.$//' | awk '{print $NF}'
+`
+
 ### 4. Restart zabbix agentd
 
 restart zabbix_agentd, import & apply the template
