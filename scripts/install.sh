@@ -9,7 +9,6 @@ echo "--- Install Zabbix agent file ---"
 
 INSTALL_DIR="/usr/local/etc/zabbix5/zabbix_agentd.conf.d/";
 
-cd ./zabbix-fbsd-CPU-temperature/scripts/
 install -g wheel -o root -m 644 zbx.cpu.coretemp.conf ${INSTALL_DIR}/
 
 /usr/local/etc/rc.d/zabbix_agentd restart
