@@ -36,9 +36,7 @@ also make sure zabbix_agentd has all the paths needed: in `/etc/rc.conf`
 
 ## Install script
 `
-git clone https://github.com/smejdil/zabbix-fbsd-CPU-temperature
-cd ./zabbix-fbsd-CPU-temperature/scripts/
-./install
+git clone https://github.com/smejdil/zabbix-fbsd-CPU-temperature && cd ./zabbix-fbsd-CPU-temperature/scripts/ && ./install
 `
 
 ## Test discovery key
