@@ -35,13 +35,13 @@ also make sure zabbix_agentd has all the paths needed: in `/etc/rc.conf`
 `zabbix_agentd_paths="/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin"`
 
 ## Install script
-`
+
+```console
 git clone https://github.com/smejdil/zabbix-fbsd-CPU-temperature && cd ./zabbix-fbsd-CPU-temperature/scripts/ && ./install
-`
+```
 
 ## Test discovery key
-`
+```console
 zabbix_get -s 127.0.0.1 -k coretemp.cpu.discovery                                   
 {"data":[{"{#CPUCORE}":"0"},{"{#CPUCORE}":"1"},{"{#CPUCORE}":"2"},{"{#CPUCORE}":"3"},{"{#CPUCORE}":"4"},{"{#CPUCORE}":"5"},{"{#CPUCORE}":"6"},{"{#CPUCORE}":"7"}]}
-`
-
+```
